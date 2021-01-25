@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  
+  apache:
+    build: .
+    image: 
+      'jaml:php74'
+    container_name: 
+      php74
+    ports: 
+      - '8080:80'
+    volumes:
+      - /home/devops/temp:/var/www/html
+    networks:
+     - jaml-networks
+
+  mysqldb:
+    image: 
+      mysql:5.7
+    container_name: 
+      mysql57
+    ports:
+      - '3306:3306'
+    environment:
+      - MYSQL_ROOT_PASSWORD=root   
+    networks:
+     - jaml-networks
+
+networks:
+    jaml-networks:
