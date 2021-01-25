@@ -2,7 +2,7 @@ version: '3'
 
 services:
   
-  apache:
+  php57:
     build: .
     image: 
       'jaml:php74'
@@ -11,11 +11,11 @@ services:
     ports: 
       - '8080:80'
     volumes:
-      - /home/devops/temp:/var/www/html
+      - /files/php-projects/upinsider/phpfullstack:/var/www/html
     networks:
      - jaml-networks
 
-  mysqldb:
+  mysql57:
     image: 
       mysql:5.7
     container_name: 
